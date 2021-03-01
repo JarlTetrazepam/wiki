@@ -24,3 +24,7 @@ def search(request):
             "query": query,
             "results": util.search(query)
         })
+
+def random(request):
+    entry = util.random_entry()
+    return HttpResponseRedirect(reverse('article', args=[entry]))
