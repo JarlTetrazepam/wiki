@@ -38,3 +38,13 @@ def get_entry(title):
         return md.convert(f.read().decode("utf-8"))
     except FileNotFoundError:
         return "Error: File not found"
+
+def search(query):
+    results = []
+    for title in list_entries():
+        if query.lower() == title.lower():
+            results.append(title)
+            return title
+        if query.lower() in title.lower():
+            results.append(title)
+    return results

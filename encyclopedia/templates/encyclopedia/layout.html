@@ -10,8 +10,9 @@
     <body>
         <section class="sidebar">
             <h2><a href="{% url 'index' %}">Wiki</a></h2>
-            <form>
+            <form action="{% url 'search' %}" method="GET">
                 <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
+                <input type="submit" placeholder="Submit">
             </form>
             <div>
                 Create New Page
