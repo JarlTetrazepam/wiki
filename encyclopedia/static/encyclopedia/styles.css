@@ -25,6 +25,8 @@ textarea {
 .main {
     padding: 10px;
     max-width: 80vw;
+    display: flex;
+    flex-direction: column;
 }
 
 .search {
@@ -38,6 +40,8 @@ textarea {
     min-height: 100vh;
     max-width: 20vw;;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar h2 {
@@ -48,6 +52,6 @@ a {
     text-decoration: none;
 }
 
-li {
+li.unstyled {
     list-style-type: none;
 }

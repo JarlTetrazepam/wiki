@@ -5,11 +5,12 @@
 {% endblock title %}
 
 {% block body %}
+    <span>Results for {{ query }}:</span>
     <ul>
         {% for result in results %}
-            <li><a href="{% url 'article' entry=result %}">{{ result }}</a></li>
+            <li class="unstyled"><a href="{% url 'article' entry=result %}">{{ result }}</a></li>
         {% empty %}
-            <li>No results</li>
+            <li class="unstyled">Your search for "{{ query }}" produced no results</li>
         {% endfor %}
     </ul>
 {% endblock body %}
