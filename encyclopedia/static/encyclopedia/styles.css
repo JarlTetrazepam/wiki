@@ -55,3 +55,8 @@ a {
 li.unstyled {
     list-style-type: none;
 }
+
+.offscreen {
+    position: absolute;
+    left: 99999px;
+}
