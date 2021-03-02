@@ -5,10 +5,18 @@
 {% endblock title %}
 
 {% block body %}
-    <form action="{% url 'add_new' %}" method="post">
-        {% csrf_token %}
-        {{ form }}
-        <label class="offscreen" for="submitNewEntry">Submit</label>
-        <input type="submit" id="submitNewEntry" value="Submit">
-    </form>
+    <article class="newWrapper">
+        {% if error %}
+            <span class="error">Entry already exists. <a href="{% url 'article' entry=entry %}">Try editing it here</a></span>
+        {% endif %}
+        <form action="{% url 'add_new' %}" method="post">
+            {% csrf_token %}
+            {{ form }}
+            <label class="offscreen" for="submitNewEntry">Submit</label>
+            <input class="submitButton" type="submit" id="submitNewEntry" value="Submit entry">
+        </form>
+        <section>
+            <span>This Encyclopedia uses Markdown. <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Read about Markdown formatting here</a></span>
+        </section>
+    </article>
 {% endblock body %}
