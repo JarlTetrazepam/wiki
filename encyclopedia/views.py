@@ -11,7 +11,7 @@ class NewEntry(forms.Form):
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
-        "entries": util.list_entries()
+        "entries": util.list_entries(),
     })
 
 def article(request, entry):

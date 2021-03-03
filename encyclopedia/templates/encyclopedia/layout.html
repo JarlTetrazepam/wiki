@@ -8,6 +8,7 @@
         <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
     </head>
     <body>
+        <a class="skipToContent" href="#main">Skip to content</a>
         <section class="sidebar" aria-label="Sidebar">
             <h2><a href="{% url 'index' %}">Wiki</a></h2>
             <form action="{% url 'search' %}" method="GET">
@@ -23,7 +24,7 @@
             {% block nav %}
             {% endblock nav %}
         </section>
-        <article class="main" aria-label="Encyclopedia entry">
+        <article class="main" id="main" aria-label="Encyclopedia entry">
             {% block body %}
             {% endblock body %}
         </article>
