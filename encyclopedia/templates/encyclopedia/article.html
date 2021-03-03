@@ -6,6 +6,7 @@
 
 {% block body %}
     <article>
+        <span><a href="{% url 'edit_entry' entry=title %}">Edit this article</a></span>
         {{ entry | safe}}
     </article>
 {% endblock body %}

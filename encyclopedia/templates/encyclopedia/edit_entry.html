@@ -1,15 +1,12 @@
 {% extends 'encyclopedia/layout.html' %}
 
 {% block title %}
-    Encyclopedia - Add Entry
+    Encyclopedia - Edit Entry {{ title }}
 {% endblock title %}
 
 {% block body %}
     <article class="newWrapper">
-        {% if error %}
-            <span class="error">Entry already exists. <a href="{% url 'edit_entry' entry=entry %}">Try editing it here</a></span>
-        {% endif %}
-        <form action="{% url 'add_new' %}" method="post">
+        <form action="{% url 'edit_entry' entry=title %}" method="post">
             {% csrf_token %}
             {{ form }}
             <label class="offscreen" for="submitNewEntry">Submit</label>

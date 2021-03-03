@@ -9,7 +9,10 @@
 
     <ul>
         {% for entry in entries %}
-            <li class="unstyled"><h2><a href="{% url 'article' entry=entry %}">{{ entry }}</a></h2></li>
+            <li class="unstyled">
+                <h2><a href="{% url 'article' entry=entry %}">{{ entry }}</a></h2>
+                <span>{{ preview | safe }}</span>
+            </li>
         {% endfor %}
     </ul>
 

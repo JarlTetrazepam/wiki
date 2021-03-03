@@ -24,10 +24,10 @@ def save_entry(title, content):
     it is replaced.
     """
     filename = f"entries/{title}.md"
+    title_and_content = f"# {title}\n{content}"
     if default_storage.exists(filename):
         return FileExistsError
-    default_storage.save(filename, ContentFile(content))
-
+    default_storage.save(filename, ContentFile(title_and_content))
 
 def get_entry(title):
     """
@@ -36,7 +36,7 @@ def get_entry(title):
     """
     try:
         f = default_storage.open(f"entries/{title}.md")
-        return md.convert(f.read().decode("utf-8"))
+        return f.read().decode("utf-8")
     except FileNotFoundError:
         return f"Error: File '{title}' not found"
 
@@ -54,3 +54,10 @@ def random_entry():
     entries = list_entries()
     random_index = random.randint(0, len(entries) - 1)
     return entries[random_index]
+
+def edit_entry(title, content):
+    filename = f"entries/{title}.md"
+    title_and_content = f"# {title}\n{content}"
+    if default_storage.exists(filename):
+        default_storage.delete(filename)
+    default_storage.save(filename, ContentFile(title_and_content))
