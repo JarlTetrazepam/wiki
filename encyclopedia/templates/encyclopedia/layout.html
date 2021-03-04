@@ -6,11 +6,12 @@
     <head>
         <title>{% block title %}{% endblock title %}</title>
         <link href="{% static 'encyclopedia/styles.css' %}" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
     </head>
     <body>
         <a class="skipToContent" href="#main">Skip to content</a>
         <section class="sidebar" aria-label="Sidebar">
-            <h2><a href="{% url 'index' %}">Wiki</a></h2>
+            <h1><a href="{% url 'index' %}">Wiki</a></h1>
             <form action="{% url 'search' %}" method="GET">
                 <input class="search" type="text" name="q" placeholder="Search Encyclopedia">
                 <input class="submitButton" type="submit" value="Submit Search">
