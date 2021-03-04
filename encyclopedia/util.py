@@ -24,7 +24,7 @@ def save_entry(title, content):
     it is replaced.
     """
     filename = f"entries/{title}.md"
-    title_and_content = f"# {title}\n{content}"
+    title_and_content = (f"# {title}\n{content}").encode("utf-8")
     if default_storage.exists(filename):
         return FileExistsError
     default_storage.save(filename, ContentFile(title_and_content))
@@ -57,7 +57,7 @@ def random_entry():
 
 def edit_entry(title, content):
     filename = f"entries/{title}.md"
-    title_and_content = f"# {title}\n{content}"
+    title_and_content = f"# {title}\n{content}".encode("utf-8")
     if default_storage.exists(filename):
         default_storage.delete(filename)
     default_storage.save(filename, ContentFile(title_and_content))
